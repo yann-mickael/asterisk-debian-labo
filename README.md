@@ -21,9 +21,8 @@ Ce projet inclut l’installation, la compilation, la configuration de base et l
 sudo apt update
 sudo apt install -y build-essential libncurses5-dev libssl-dev libxml2-dev libsqlite3-dev wget git
 sudo apt install -y sngrep
+
 2. Téléchargement et compilation d’Asterisk
-bash
-Copier le code
 cd /usr/src
 wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-20.15.2.tar.gz
 tar xvfz asterisk-20.15.2.tar.gz
@@ -55,6 +54,7 @@ Ping LAN autorisé : (si UFW supporte ICMP)
 
 sudo iptables -A INPUT -p icmp -s 192.168.1.0/24 -j ACCEPT
 sudo netfilter-persistent save
+
 
 
 
