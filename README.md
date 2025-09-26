@@ -55,6 +55,33 @@ Ping LAN autorisé : (si UFW supporte ICMP)
 sudo iptables -A INPUT -p icmp -s 192.168.1.0/24 -j ACCEPT
 sudo netfilter-persistent save
 
+# Asterisk Debian Labo
+
+Projet de laboratoire pour installer et configurer un serveur Asterisk 20 sur Debian 12, avec deux clients SIP (iPhone et Android).
+
+## Structure du projet
+
+- `configs/` : fichiers de configuration Asterisk (pjsip.conf, extensions.conf)
+- `scripts/` : scripts pour démarrer ou tester Asterisk
+- `docs/` : documentation et guides
+- `.gitignore` : fichiers à ignorer par Git
+
+## Configuration des endpoints
+
+| Client  | Nom d’utilisateur | Mot de passe | IP/Serveur | Port | Transport | Numéro à composer |
+|--------|-----------------|-------------|------------|------|-----------|-----------------|
+| iPhone | alice           | Alice1234!  | IP_VM      | 5060 | UDP       | 1001 → Bob       |
+| Android| bob             | Bob1234!    | IP_VM      | 5060 | UDP       | 1000 → Alice     |
+
+## Dialplan (`extensions.conf`)
+
+```ini
+[from-internal]
+exten => 1001,1,Dial(PJSIP/bob,20)
+exten => 1000,1,Dial(PJSIP/alice,20)
+
+
+
 
 
 
