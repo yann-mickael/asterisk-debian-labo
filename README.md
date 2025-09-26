@@ -1,5 +1,4 @@
 ﻿# asterisk-debian-labo
-# asterisk-debian-labo
 
 ## Description
 Laboratoire Asterisk 20 sur Debian 12 (Bookworm) configuré pour tester des extensions SIP depuis un iPhone et des clients locaux sur un réseau LAN.  
@@ -58,4 +57,5 @@ bash
 Copier le code
 sudo iptables -A INPUT -p icmp -s 192.168.1.0/24 -j ACCEPT
 sudo netfilter-persistent save
+
 
