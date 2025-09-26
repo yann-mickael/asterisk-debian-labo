@@ -35,8 +35,7 @@ sudo make samples
 sudo make config
 sudo ldconfig
 3. Démarrage et vérification d’Asterisk
-bash
-Copier le code
+
 sudo systemctl enable --now asterisk
 sudo systemctl status asterisk
 sudo asterisk -rvvv
@@ -46,16 +45,13 @@ Utilisation de VirtualBox en mode Pont pour que la VM soit sur le même LAN que 
 
 Ouverture des ports nécessaires pour SIP et RTP :
 
-bash
-Copier le code
 sudo ufw enable
 sudo ufw allow 5060/udp        # SIP
 sudo ufw allow 10000:20000/udp # RTP
 Ping LAN autorisé : (si UFW supporte ICMP)
 
-bash
-Copier le code
 sudo iptables -A INPUT -p icmp -s 192.168.1.0/24 -j ACCEPT
 sudo netfilter-persistent save
+
 
 
